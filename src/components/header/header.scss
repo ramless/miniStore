@@ -25,6 +25,7 @@ header{
 		max-height: 300px;
 		overflow-y: auto;
 		min-width: 350px !important;
+		max-width: 400px;
 	}
 	
 	.dropdown-item {
@@ -36,6 +37,7 @@ header{
 		.link{
 			color: #000;
 			white-space: normal;
+			padding-right: 24px;
 			&:hover{
 				color: #ffc107;
 			}
