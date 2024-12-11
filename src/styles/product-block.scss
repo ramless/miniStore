@@ -1,0 +1,12 @@
+.product-block{
+	background: #f3f3f3;
+	&__heading{
+		text-align: center;
+		padding: 32px 0 16px;
+	}
+	&__wrap{
+		border: 1px solid #cbcbcb;
+		border-radius: 5px;
+		padding: 16px;
+	}
+}

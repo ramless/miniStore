@@ -1,0 +1,26 @@
+.product-card {
+	padding: 16px 8px;
+	border: 1px solid #ccc;
+	background: #fff;
+	text-align: center;
+	margin-bottom: 16px;
+	&__heading{
+		font-size: 15px;
+		height: 40px;
+	}
+	&__image{
+		height: 150px;
+		max-width: 100%;
+		display: block;
+		margin: 0 auto 8px;
+	}
+	&__price{
+		font-size: 18px;
+		font-weight: 700;
+		border: 1px solid #ddd;
+		display: inline-block;
+		padding: 0 8px;
+		border-radius: 6px;
+		margin-top: 8px;
+	}
+}

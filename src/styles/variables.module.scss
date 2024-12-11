@@ -1,0 +1,9 @@
+$color: #000;
+
+:export {
+	color: $color;
+}
+
+.color {
+	color: $color;
+}
