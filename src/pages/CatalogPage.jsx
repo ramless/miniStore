@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../actions/actions.jsx";
 import ProductCard from "../components/productCard/ProductCard";
 import Spinner from "../helpers/utils/Spinner.jsx";
+import { fetchProducts } from "../api/services/products";
 
 import '../styles/product-block.scss'
 
@@ -14,20 +15,18 @@ const CatalogPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const loadProducts = async () => {
             try {
-                setLoading(true); // Start loading
-                const response = await axios.get("https://fakestoreapi.com/products");
-                setProducts(response.data);
+                setLoading(true);
+                const data = await fetchProducts();
+                setProducts(data);
+                setLoading(false);
             } catch (error) {
-                console.error("Error fetching products:", error);
-            } finally {
-                setLoading(false); // Stop loading after data is fetched
+                setLoading(false);
             }
         };
-
-        fetchProducts();
-    }, []); // Запускаем запрос только один раз при монтировании компонента
+        loadProducts();
+    }, []);
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product)); // Добавляем товар в корзину

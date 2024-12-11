@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../actions/actions";
 import Spinner from "../helpers/utils/Spinner.jsx";
 import ProductDetails from "../components/productDetails/ProductDetails.jsx";
+import {fetchProductById} from "../api/services/products";
 import axios from "axios";
 
 
@@ -15,18 +16,19 @@ const ProductDetailPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Загружаем данные товара по ID
-        axios
-            .get(`https://fakestoreapi.com/products/${id}`)
-            .then((response) => {
-                setProduct(response.data);
+        const loadProduct = async () => {
+            try {
+                const productData = await fetchProductById(id); // Вызываем API
+                setProduct(productData);
                 setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Ошибка при загрузке товара", error);
+            } catch (error) {
                 setLoading(false);
-            });
+            }
+        };
+
+        loadProduct();
     }, [id]);
+
 
     const handleAddToCart = () => {
         if (product) {
