@@ -17,17 +17,18 @@ const CatalogPage = () => {
         const fetchProducts = async () => {
             try {
                 setLoading(true); // Start loading
-                const response = await axios.get("https://fakestoreapi.com/products");
-                setProducts(response.data);
+                const response = await axios.get("https://cors-anywhere.herokuapp.com/https://fakestoreapi.com/products");
+                console.log("Fetched products:", response.data); // Log the fetched data
+                setProducts(response.data); // Update state with fetched products
             } catch (error) {
                 console.error("Error fetching products:", error);
             } finally {
-                setLoading(false); // Stop loading after data is fetched
+                setLoading(false); // Stop loading
             }
         };
 
         fetchProducts();
-    }, []); // Запускаем запрос только один раз при монтировании компонента
+    }, []); // Run only once when the component mounts
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product)); // Добавляем товар в корзину
