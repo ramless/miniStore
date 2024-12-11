@@ -1,7 +1,6 @@
 {
   "name": "mini-shop",
   "private": true,
-  "homepage": "https://ramless.github.io/ministore/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
