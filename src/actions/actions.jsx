@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const loadCartFromLocalStorage = () => {
     const savedCart = localStorage.getItem("cart");
-    return savedCart ? JSON.parse(savedCart) : []; // Если корзина есть в localStorage, возвращаем её, иначе пустой массив
+    return savedCart ? JSON.parse(savedCart) : [];
 };
 
 const saveCartToLocalStorage = (cart) => {
@@ -10,7 +10,7 @@ const saveCartToLocalStorage = (cart) => {
 };
 
 const initialState = {
-    items: loadCartFromLocalStorage(), // Инициализируем корзину из localStorage
+    items: loadCartFromLocalStorage(),
 };
 
 const actions = createSlice({
@@ -33,14 +33,14 @@ const actions = createSlice({
         increaseQuantity: (state, action) => {
             const item = state.items.find((i) => i.id === action.payload);
             if (item) {
-                item.quantity += 1; // Увеличиваем количество товара
+                item.quantity += 1;
             }
             saveCartToLocalStorage(state.items);
         },
         decreaseQuantity: (state, action) => {
             const item = state.items.find((i) => i.id === action.payload);
             if (item && item.quantity > 1) {
-                item.quantity -= 1; // Уменьшаем количество товара, если оно больше 1
+                item.quantity -= 1;
             }
             saveCartToLocalStorage(state.items);
         },

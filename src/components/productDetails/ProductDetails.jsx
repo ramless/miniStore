@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProductDetails.scss"; // Подключение CSS для компонента
+import "./ProductDetails.scss";
 
 const ProductDetails = ({ product, handleAddToCart }) => {
     return (
@@ -8,7 +8,7 @@ const ProductDetails = ({ product, handleAddToCart }) => {
                 <div className="col-12">
                     <div className="card shadow-lg p-3">
                         <div className="row g-0">
-                            {/* Изображение товара */}
+                            {}
                             <div className="col-md-4">
                                 <img
                                     src={product.image}
@@ -17,7 +17,7 @@ const ProductDetails = ({ product, handleAddToCart }) => {
                                     style={{ padding: "24px" }}
                                 />
                             </div>
-                            {/* Детали товара */}
+                            {}
                             <div className="col-md-8">
                                 <div className="card-body d-flex flex-column justify-content-between">
                                     <h1 className="card-title fs-4 fw-bold">{product.title}</h1>

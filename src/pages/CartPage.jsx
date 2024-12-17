@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart } from "../actions/actions.jsx";
 import { Link } from "react-router-dom";
 import CartItem from "../components/cartItem/CartItem.jsx";
-import { calculateTotalPrice } from "../helpers/utils/CalculatePrice.jsx";  // Ensure to import calculatePrice
+import { calculateTotalPrice } from "../helpers/utils/CalculatePrice.jsx";
 
 const CartPage = () => {
     const cart = useSelector((state) => state.cart.items);
@@ -17,10 +17,8 @@ const CartPage = () => {
             </div>
         );
     }
-    // Calculate the total price of all items in the cart
     const totalAmount = calculateTotalPrice(cart);
 
-    // Ensure the total amount is a valid number and handle NaN cases
     const validTotalAmount = !isNaN(totalAmount) ? totalAmount : 0;
     return (
         <div className="container py-5">

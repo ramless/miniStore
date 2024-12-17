@@ -10,7 +10,7 @@ import '../styles/product-block.scss'
 
 const CatalogPage = () => {
     const [products, setProducts] = useState([]);
-    const [itemsPerPage] = useState(6);  // Количество товаров на странице
+    const [itemsPerPage] = useState(6);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const CatalogPage = () => {
     }, []);
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart(product)); // Добавляем товар в корзину
+        dispatch(addToCart(product));
     };
 
     if (loading) {
@@ -41,7 +41,7 @@ const CatalogPage = () => {
             <h1 className={'product-block__heading'}>Products</h1>
             <div className="container">
                 <div className="row">
-                    {products.slice(0, itemsPerPage).map((product) => (  // Ограничиваем количество товаров
+                    {products.slice(0, itemsPerPage).map((product) => (
                         <div className="col-lg-4 col-6" key={product.id}>
                             <ProductCard
                                 product={product}

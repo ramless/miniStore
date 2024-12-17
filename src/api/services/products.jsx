@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://fakestoreapi.com";
 
-// Получить список всех товаров
+// товары
 export const fetchProducts = async () => {
     try {
         const response = await axios.get(`${API_URL}/products`);
@@ -13,7 +13,7 @@ export const fetchProducts = async () => {
     }
 };
 
-// Получить информацию о конкретном товаре по ID
+// товар по ID
 export const fetchProductById = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/products/${id}`);

@@ -43,9 +43,9 @@ const CheckoutPage = () => {
 
     useEffect(() => {
         if (cart.length === 0) {
-            navigate("/"); // Redirect to the home page
+            navigate("/");
         }
-    }, [cart, navigate]); // Only trigger effect when cart changes
+    }, [cart, navigate]);
 
     return (
         <div className="container py-5">

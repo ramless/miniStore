@@ -6,15 +6,15 @@ import { removeFromCart } from "../../actions/actions.jsx";
 import "./header.scss";
 
 const Header = () => {
-    const cart = useSelector((state) => state.cart.items); // Получаем товары из Redux
-    const uniqueItemsCount = useMemo(() => cart.length, [cart]); // Мемоизируем количество товаров
-    const location = useLocation(); // Get current location
-    const dispatch = useDispatch(); // Диспетчер для вызова действий
+    const cart = useSelector((state) => state.cart.items);
+    const uniqueItemsCount = useMemo(() => cart.length, [cart]);
+    const location = useLocation();
+    const dispatch = useDispatch();
 
     const isCartOrCheckoutPage = location.pathname === '/cart' || location.pathname === '/checkout';
 
     const handleRemoveFromCart = (id) => {
-        dispatch(removeFromCart(id)); // Диспетчеризация действия для удаления товара
+        dispatch(removeFromCart(id));
     };
 
     return (
@@ -59,7 +59,7 @@ const Header = () => {
                                                         </small>
                                                         <span className={'dropdown-item-block-remove'}
                                                             style={{cursor: "pointer", marginRight: "auto"}}
-                                                            onClick={() => handleRemoveFromCart(item.id)} // Удаление товара
+                                                            onClick={() => handleRemoveFromCart(item.id)}
                                                         >X
                                                         </span>
                                                     </div>
